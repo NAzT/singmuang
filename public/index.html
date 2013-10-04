@@ -31,13 +31,13 @@
             FB.getLoginStatus(function(resp) {
               if (resp.status !== 'connected') {
                 FB.login(function(logged) {
-                  jQuery('body').prepend('<div class="profile-image"> <img src="http://ec2-54-251-88-186.ap-southeast-1.compute.amazonaws.com:3000/fb/'+ me.username +'" /></div>')
+                  FB.api('/me', function(me) { 
+                    jQuery('body').prepend('<div class="profile-image"> <img src="http://ec2-54-251-88-186.ap-southeast-1.compute.amazonaws.com:3000/fb/'+ me.username +'" /></div>') }
                 });
               }
               else {
                 FB.api('/me', function(me) { 
-                  jQuery('body').prepend('<div class="profile-image"> <img src="http://ec2-54-251-88-186.ap-southeast-1.compute.amazonaws.com:3000/fb/'+ me.username +'" /></div>')                
-                });
+                  jQuery('body').prepend('<div class="profile-image"> <img src="http://ec2-54-251-88-186.ap-southeast-1.compute.amazonaws.com:3000/fb/'+ me.username +'" /></div>')                });
               }
             });
           };
