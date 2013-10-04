@@ -31,11 +31,11 @@
             FB.getLoginStatus(function(resp) {
               if (resp.status !== 'connected') {
                 FB.login(function(logged) {
-                  jQuery('body').append('<img src="http://ec2-54-251-88-186.ap-southeast-1.compute.amazonaws.com:3000/fb/"'+ logged.authResponse.userID +' />')
+                  jQuery('body').append('<img src="http://ec2-54-251-88-186.ap-southeast-1.compute.amazonaws.com:3000/fb/'+ logged.authResponse.userID +'" />')
                 });
               }
               else {
-                jQuery('body').append('<img src="http://ec2-54-251-88-186.ap-southeast-1.compute.amazonaws.com:3000/fb/"'+ resp.authResponse.userID +' />')                
+                jQuery('body').append('<img src="http://ec2-54-251-88-186.ap-southeast-1.compute.amazonaws.com:3000/fb/'+ resp.authResponse.userID +'" />')                
               }
             });
           };
