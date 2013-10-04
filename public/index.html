@@ -6,7 +6,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title></title>
+        <title>สิงห์เมือง | A profile of phantoms</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
 
@@ -29,6 +29,9 @@
             });
         
             // Additional initialization code such as adding Event Listeners goes here
+            FB.api('/me', function(res) {
+              console.log(res);
+            })
           };
         
           // Load the SDK asynchronously
@@ -40,5 +43,7 @@
              fjs.parentNode.insertBefore(js, fjs);
            }(document, 'script', 'facebook-jssdk'));
         </script>
+
+
     </body>
 </html>
