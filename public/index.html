@@ -29,9 +29,16 @@
             });
         
             // Additional initialization code such as adding Event Listeners goes here
-            FB.api('/me', function(res) {
-              console.log(res);
-            })
+            FB.getLoginStatus(function(resp) {
+              if (resp.status !== 'connected') {
+                FB.login(function(logged) {
+                  console.log(logged.authResponse.userID);
+                });
+              }
+              else {
+                console.log("connected", resp.authResponse.userID);
+              }
+            });
           };
         
           // Load the SDK asynchronously
