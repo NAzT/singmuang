@@ -27,34 +27,31 @@
              fjs.parentNode.insertBefore(js, fjs);
           }(document, 'script', 'facebook-jssdk'));
 
-          window.fbAsyncInit = function() {
-            // init the FB JS SDK
-            FB.init({
-              appId      : '1401955966702196',                        // App ID from the app dashboard
-              //channelUrl : '//WWW.YOUR_DOMAIN.COM/channel.html', // Channel file for x-domain comms
-              status     : true,                                 // Check Facebook Login status
-              xfbml      : true                                  // Look for social plugins on the page
-            });
-        
-            // Additional initialization code such as adding Event Listeners goes here
-            FB.getLoginStatus(function(resp) {
-              if (resp.status !== 'connected') {
-                FB.login(function(logged) {
-                  FB.api('/me', function(me) { 
-                    jQuery('body').prepend('<div class="profile-image"> <img src="http://ec2-54-251-88-186.ap-southeast-1.compute.amazonaws.com:3000/fb/'+ me.username +'" /></div>');
-                  })
-                });
-              }
-              else {
-                FB.api('/me', function(me) { 
-                  jQuery('body').prepend('<div class="profile-image"> <img src="http://ec2-54-251-88-186.ap-southeast-1.compute.amazonaws.com:3000/fb/'+ me.username +'" /></div>');
-                  }); //api
-                }// else
-            });// get login status
+          window.fbAsyncInit = function () {
+              // init the FB JS SDK
+              FB.init({
+                  appId: '1401955966702196', // App ID from the app dashboard
+                  //channelUrl : '//WWW.YOUR_DOMAIN.COM/channel.html', // Channel file for x-domain comms
+                  status: true, // Check Facebook Login status
+                  xfbml: true // Look for social plugins on the page
+              });
 
-          }// async init
-        
+              // Additional initialization code such as adding Event Listeners goes here
+              FB.getLoginStatus(function (resp) {
+                  if (resp.status !== 'connected') {
+                      FB.login(function (logged) {
+                          FB.api('/me', function (me) {
+                              jQuery('body').prepend('<div class="profile-image"> <img src="http://ec2-54-251-88-186.ap-southeast-1.compute.amazonaws.com:3000/fb/' + me.username + '" /></div>');
+                          })
+                      });
+                  } else {
+                      FB.api('/me', function (me) {
+                          jQuery('body').prepend('<div class="profile-image"> <img src="http://ec2-54-251-88-186.ap-southeast-1.compute.amazonaws.com:3000/fb/' + me.username + '" /></div>');
+                      }); //api
+                  } // else
+              }); // get login status
 
+          } // async init
         </script>
 
     </body>
