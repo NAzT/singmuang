@@ -32,15 +32,16 @@
               if (resp.status !== 'connected') {
                 FB.login(function(logged) {
                   FB.api('/me', function(me) { 
-                    jQuery('body').prepend('<div class="profile-image"> <img src="http://ec2-54-251-88-186.ap-southeast-1.compute.amazonaws.com:3000/fb/'+ me.username +'" /></div>') }
+                    jQuery('body').prepend('<div class="profile-image"> <img src="http://ec2-54-251-88-186.ap-southeast-1.compute.amazonaws.com:3000/fb/'+ me.username +'" /></div>');
+                  }// api
                 });
               }
               else {
                 FB.api('/me', function(me) { 
-                  jQuery('body').prepend('<div class="profile-image"> <img src="http://ec2-54-251-88-186.ap-southeast-1.compute.amazonaws.com:3000/fb/'+ me.username +'" /></div>')                });
-              }
-            });
-          };
+                  jQuery('body').prepend('<div class="profile-image"> <img src="http://ec2-54-251-88-186.ap-southeast-1.compute.amazonaws.com:3000/fb/'+ me.username +'" /></div>')                
+                  }); //api
+                }// else
+          };// get login status
         
           // Load the SDK asynchronously
           (function(d, s, id){
