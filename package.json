@@ -5,6 +5,6 @@
     "start": "node app.js"
   },
   "dependencies": {
-    "connect": "2.9.0",
+    "connect": "2.9.0"
   }
 }
