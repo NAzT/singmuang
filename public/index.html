@@ -9,7 +9,7 @@
         <title>สิงห์เมือง | A profile of phantoms</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
-	 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> 
+	     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> 
     </head>
     <body>
         <!--[if lt IE 7]>
@@ -19,6 +19,9 @@
         <div id="fb-root"></div>
         <script>
           // Load the SDK asynchronously
+
+          var base_service_url = "http://ec2-54-251-88-186.ap-southeast-1.compute.amazonaws.com:3000/fb/";
+
           (function(d, s, id){
              var js, fjs = d.getElementsByTagName(s)[0];
              if (d.getElementById(id)) {return;}
@@ -41,12 +44,12 @@
                   if (resp.status !== 'connected') {
                       FB.login(function (logged) {
                           FB.api('/me', function (me) {
-                              jQuery('body').prepend('<div class="profile-image"> <img src="http://ec2-54-251-88-186.ap-southeast-1.compute.amazonaws.com:3000/fb/' + me.username + '" /></div>');
+                              jQuery('body').prepend('<div class="profile-image"> <img src="+ base_service_url +' + me.username + '" /></div>');
                           })
                       });
                   } else {
                       FB.api('/me', function (me) {
-                          jQuery('body').prepend('<div class="profile-image"> <img src="http://ec2-54-251-88-186.ap-southeast-1.compute.amazonaws.com:3000/fb/' + me.username + '" /></div>');
+                          jQuery('body').prepend('<div class="profile-image"> <img src="+ base_service_url +' + me.username + '" /></div>');
                       }); //api
                   } // else
               }); // get login status
